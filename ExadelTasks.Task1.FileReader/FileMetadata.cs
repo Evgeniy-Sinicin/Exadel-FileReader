@@ -25,8 +25,6 @@ namespace ExadelTasks.Task1.FileReader
             return type.GetFields();
         }
 
-        public static string GetRandomInfo() => "Random Info ...";
-
         public FileMetadata(string filePath)
         {
             _filePath = filePath;
