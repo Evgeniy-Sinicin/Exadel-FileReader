@@ -1,4 +1,5 @@
 ﻿using ExadelTasks.Task1.FileReader;
+using ExadelTasks.Task1.FileReader.Extensions;
 
 FileMetadata? fileMeta = null;
 
@@ -18,17 +19,29 @@ Array.ForEach(args, path =>
 
                 foreach (var method in FileMetadata.GetTypeMethods(type))
                 {
-                    Console.WriteLine($"Method: {method}");
+                    Console.WriteLine(method.GetInfo());
+                    
+                    if (method.IsExecutable())
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("Static method without params was found.");
+                        Console.WriteLine("Press Enter to execute it or other key to continue...");
+                        if (Console.ReadKey().Key == ConsoleKey.Enter)
+                        {
+                            Console.WriteLine($"Method returned object: {method.Invoke(null, null)}");
+                        }
+                        Console.WriteLine();
+                    }
                 }
 
                 foreach (var property in FileMetadata.GetTypeProperties(type))
                 {
-                    Console.WriteLine($"Property: {property}");
+                    Console.WriteLine(property.GetInfo());
                 }
 
-                foreach (var member in FileMetadata.GetTypeMembers(type))
+                foreach (var field in FileMetadata.GetTypeFields(type))
                 {
-                    Console.WriteLine($"Member: {member}");
+                    Console.WriteLine(field.GetInfo());
                 }
 
                 Console.WriteLine();
