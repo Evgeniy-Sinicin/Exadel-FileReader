@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "ExadelTasks.Task1.FileReader": {
+      "commandName": "Project",
+      "commandLineArgs": "ExadelTasks.Task1.FileReader.dll",
+      "workingDirectory": "C:\\Users\\ysinitsyn\\source\\repos\\exadel-tasks\\ExadelTasks.Task1.FileReader\\bin\\Debug\\net6.0"
+    }
+  }
+}
